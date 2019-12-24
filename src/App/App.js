@@ -10,6 +10,8 @@ import config from "../config";
 import "./App.css";
 import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
+import ErrorBoundry from '../ErrorBoundry';
+
 class App extends Component {
   state = {
     notes: [],
@@ -86,18 +88,20 @@ class App extends Component {
       addNote: this.handleAddNote
     };
     return (
-      <ApiContext.Provider value={value}>
-        <div className="App">
-          <nav className="App__nav">{this.renderNavRoutes()}</nav>
-          <header className="App__header">
-            <h1>
-              <Link to="/">Noteful</Link>{" "}
-              <FontAwesomeIcon icon="check-double" />
-            </h1>
-          </header>
-          <main className="App__main">{this.renderMainRoutes()}</main>
-        </div>
-      </ApiContext.Provider>
+      <ErrorBoundry>
+        <ApiContext.Provider value={value}>
+          <div className="App">
+            <nav className="App__nav">{this.renderNavRoutes()}</nav>
+            <header className="App__header">
+              <h1>
+                <Link to="/">Noteful</Link>{" "}
+                <FontAwesomeIcon icon="check-double" />
+              </h1>
+            </header>
+            <main className="App__main">{this.renderMainRoutes()}</main>
+          </div>
+        </ApiContext.Provider>
+      </ErrorBoundry>
     );
   }
 }

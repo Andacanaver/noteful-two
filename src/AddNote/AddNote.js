@@ -77,7 +77,7 @@ export default class AddNote extends Component {
     }
     contentChange = content => {
         this.setState({content: content})
-    }
+    } 
     validateName = () => {
         const name = this.state.noteName.name.trim();
         if (name.length === 0) {
@@ -117,7 +117,13 @@ export default class AddNote extends Component {
                                 Enter Note Content
                             </label>
                             <input type='text' id='content' name='content' onChange={e => this.contentChange(e.target.value)}/>
-                            <button type='submit'>Save</button>
+                            <button 
+                                type='submit'
+                                disabled={
+                                    this.validateFolder() ||
+                                    this.validateName()
+                                }
+                            >Save</button>
                         </div>
                     </ErrorBoundry>
                 </NotefulForm>

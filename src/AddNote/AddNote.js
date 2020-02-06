@@ -18,7 +18,7 @@ export default class AddNote extends Component {
                 touched: false
             },
             noteFolder: {
-                folder: '',
+                folder_id: '',
                 touched: false
             },
             content: '',
@@ -34,8 +34,8 @@ export default class AddNote extends Component {
     
     handleAddNote = () => {
         const note = {
-            name: this.state.noteName.name,
-            folderId: this.state.noteFolder.folder,
+            note_name: this.state.noteName.name,
+            folder_id: this.state.noteFolder.folder_id,
             content: this.state.content,
             modified: this.state.modified
         }
@@ -73,7 +73,7 @@ export default class AddNote extends Component {
         this.setState({noteName: {name: name, touched: true}});
     }
     folderChange = folder => {
-        this.setState({noteFolder: {folder: folder, touched: true}});
+        this.setState({noteFolder: {folder_id: folder, touched: true}});
     }
     contentChange = content => {
         this.setState({content: content})
@@ -88,7 +88,7 @@ export default class AddNote extends Component {
     }
     
     validateFolder = () => {
-        const folder = this.state.noteFolder.folder;
+        const folder = this.state.noteFolder.folder_id;
         if(folder === '' || folder === 0) {
             return 'Please select a folder to put the note in';
         } 
@@ -109,7 +109,7 @@ export default class AddNote extends Component {
                             <select id='folder-select' onChange={e => this.folderChange(e.target.value)}>
                                 <option value='0'>Select a folder</option>
                                 {folders.map(folder => (
-                                    <option value={folder.id}>{folder.name}</option>
+                                    <option value={folder.id}>{folder.folder_name}</option>
                                 ))}
                             </select>
                             {this.state.noteFolder.touched && (<ValidationError message={folderError}/>)}

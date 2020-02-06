@@ -38,7 +38,7 @@ export default class AddFolder extends Component {
     handleAddfolder = () => {
         fetch(`${config.API_ENDPOINT}/folders`, {
           method: "POST",
-          body: JSON.stringify({name: this.state.name}),
+          body: JSON.stringify({folder_name: this.state.name}),
           headers: {
             "Content-type": "application/json",
             'Accept': 'application/json'

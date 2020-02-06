@@ -13,7 +13,7 @@ export default class AddFolder extends Component {
         super();
         this.state = {
             error: null,
-            name: '',
+            folder_name: '',
             validName: false,
             message: ''
         };
@@ -21,7 +21,7 @@ export default class AddFolder extends Component {
 
     validateName = e => {
         e.preventDefault();
-        if (!this.state.name) {
+        if (!this.state.folder_name) {
             this.setState({
                 message: 'Folder name can not be blank',
                 validName: false
@@ -38,7 +38,7 @@ export default class AddFolder extends Component {
     handleAddfolder = () => {
         fetch(`${config.API_ENDPOINT}/folders`, {
           method: "POST",
-          body: JSON.stringify({name: this.state.name}),
+          body: JSON.stringify({folder_name: this.state.name}),
           headers: {
             "Content-type": "application/json",
             'Accept': 'application/json'
@@ -67,9 +67,9 @@ export default class AddFolder extends Component {
     
     
     nameChange = name => {
-        this.setState({name: name});
+        this.setState({folder_name: name});
     }
- render() {
+  render() {
         return (
           <div className="add-folder">
             <NotefulForm

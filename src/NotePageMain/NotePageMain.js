@@ -26,9 +26,9 @@ export default class NotePageMain extends React.Component {
       <ErrorBoundry>
         <section className="NotePageMain">
           <Note
-            id={note.id}
-            name={note.name}
-            modified={note.modified}
+            id={note.noteId}
+            name={note.note_name}
+            modified={note.date_modified}
             onDeleteNote={this.handleDeleteNote}
           />
           <div className="NotePageMain__content">

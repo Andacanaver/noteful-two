@@ -14,7 +14,7 @@ export default class AddNote extends Component {
         super();
         this.state = {
             noteName: {
-                name: '',
+                note_name: '',
                 touched: false
             },
             noteFolder: {
@@ -22,7 +22,7 @@ export default class AddNote extends Component {
                 touched: false
             },
             content: '',
-            modified: new Date()
+            date_modified: new Date()
         }
     }
     
@@ -34,10 +34,10 @@ export default class AddNote extends Component {
     
     handleAddNote = () => {
         const note = {
-            name: this.state.noteName.name,
+            note_name: this.state.noteName.note_name,
             folderId: this.state.noteFolder.folder,
             content: this.state.content,
-            modified: this.state.modified
+            date_modified: this.state.date_modified
         }
        
         fetch(`${config.API_ENDPOINT}/notes`, {
@@ -70,7 +70,7 @@ export default class AddNote extends Component {
     }
     
     nameChange = name => {
-        this.setState({noteName: {name: name, touched: true}});
+        this.setState({noteName: {note_name: name, touched: true}});
     }
     folderChange = folder => {
         this.setState({noteFolder: {folder: folder, touched: true}});
@@ -79,7 +79,7 @@ export default class AddNote extends Component {
         this.setState({content: content})
     } 
     validateName = () => {
-        const name = this.state.noteName.name.trim();
+        const name = this.state.noteName.note_name.trim();
         if (name.length === 0) {
             return 'Name is required';
         } else if (name.length < 3) {
@@ -109,7 +109,7 @@ export default class AddNote extends Component {
                             <select id='folder-select' onChange={e => this.folderChange(e.target.value)}>
                                 <option value='0'>Select a folder</option>
                                 {folders.map(folder => (
-                                    <option value={folder.id}>{folder.name}</option>
+                                    <option value={folder.folderId} key={folder.folderId}>{folder.folder_name}</option>
                                 ))}
                             </select>
                             {this.state.noteFolder.touched && (<ValidationError message={folderError}/>)}

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import NoteListMain from './NoteListMain'
-
+ 
 describe(`NoteListMain component`, () => {
   const props = {
     notes: [
@@ -48,3 +48,4 @@ describe(`NoteListMain component`, () => {
     expect(toJson(ul)).toMatchSnapshot()
   })
 })
+

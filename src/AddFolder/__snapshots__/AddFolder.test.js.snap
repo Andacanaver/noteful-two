@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFolder Component renders a .AddFolder by default 1`] = `
+<div
+  className="add-folder"
+>
+  <NotefulForm
+    className="add__folder__form"
+    onSubmit={[Function]}
+  >
+    <ErrorBoundry>
+      <h2>
+        Add Folder
+      </h2>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="name"
+        >
+          Enter Folder Name
+        </label>
+        <input
+          className="name__field"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          type="text"
+        />
+        <button
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+      <NavCircleButton
+        className="NotePageNav__back-button"
+        onClick={[Function]}
+        role="link"
+        tag="button"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon="chevron-left"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          swapOpacity={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+        <br />
+        Back
+      </NavCircleButton>
+    </ErrorBoundry>
+  </NotefulForm>
+</div>
+`;

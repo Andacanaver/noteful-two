@@ -36,7 +36,7 @@ export default class NotePageNav extends React.Component {
             Back
           </CircleButton>
           {folder && (
-            <h3 className="NotePageNav__folder-name">{folder.name}</h3>
+            <h3 className="NotePageNav__folder-name">{folder.folder_name}</h3>
           )}
         </div>
       </ErrorBoundry>

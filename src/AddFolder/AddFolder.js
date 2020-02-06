@@ -69,7 +69,7 @@ export default class AddFolder extends Component {
     nameChange = name => {
         this.setState({name: name});
     }
- render() {
+  render() {
         return (
           <div className="add-folder">
             <NotefulForm

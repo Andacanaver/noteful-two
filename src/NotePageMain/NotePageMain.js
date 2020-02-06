@@ -23,22 +23,22 @@ export default class NotePageMain extends React.Component {
     const { noteId } = this.props.match.params;
     const note = findNote(notes, noteId) || { content: "" };
     return (
-      <ErrorBoundry>
-        <section className="NotePageMain">
-          <Note
-            id={note.id}
-            name={note.name}
-            modified={note.modified}
-            onDeleteNote={this.handleDeleteNote}
-          />
-          <div className="NotePageMain__content">
-            {note.content.split(/\n \r|\n/).map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
-        </section>
-      </ErrorBoundry>
-    );
+		<ErrorBoundry>
+			<section className="NotePageMain">
+				<Note
+					id={note.id}
+					note_name={note.note_name}
+					modified={note.modified}
+					onDeleteNote={this.handleDeleteNote}
+				/>
+				<div className="NotePageMain__content">
+					{note.content.split(/\n \r|\n/).map((para, i) => (
+						<p key={i}>{para}</p>
+					))}
+				</div>
+			</section>
+		</ErrorBoundry>
+	);
   }
 }
 NotePageMain.propTypes = {

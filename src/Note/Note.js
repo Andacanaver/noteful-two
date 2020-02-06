@@ -36,40 +36,36 @@ export default class Note extends Component {
     })
   }
   render() {
-    const {name, id, modified} = this.props
+    const {note_name, id, modified} = this.props
     return (
-      <div className='Note'>
-        <h2 className='Note__title'>
-          <Link to={`/note/${id}`}>
-            {name}
-          </Link>
-        </h2>
-        <button 
-          className='Note__delete' 
-          type='button' 
-          onClick={this.handleDelete}
-        >
-          <FontAwesomeIcon icon='trash-alt' />
-          {' '}
-          remove
-        </button>
-        <div className='Note__dates'>
-          <div className='Note__dates-modified'>
-            Modified
-            {' '}
-            <span className='Date'>
-              {/*format(modified, 'Do MMM YYYY')*/}
-            </span>
-          </div>
-        </div>
-      </div>
-    )
+		<div className="Note">
+			<h2 className="Note__title">
+				<Link to={`/note/${id}`}>{note_name}</Link>
+			</h2>
+			<button
+				className="Note__delete"
+				type="button"
+				onClick={this.handleDelete}>
+				<FontAwesomeIcon icon="trash-alt" /> remove
+			</button>
+			<div className="Note__dates">
+				<div className="Note__dates-modified">
+					Modified{" "}
+					<span className="Date">
+						{format(modified, "Do MMM YYYY", {
+							awareOfUnicodeTokens: true
+						})}
+					</span>
+				</div>
+			</div>
+		</div>
+	);
   }
 }
 
 Note.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  modified: PropTypes.string.isRequired,
+  note_name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  modified: PropTypes.instanceOf(Date).isRequired,
   onDeleteNote: PropTypes.func.isRequired
 }

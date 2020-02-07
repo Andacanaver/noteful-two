@@ -57,8 +57,6 @@ export default class AddNote extends Component {
         .then(res => res.json())
         .then(data => {
             this.context.addNote(data);
-            console.log(data)
-            console.log(this.props.history)
             this.props.history.push("/");
         })
         .catch(error => {
@@ -109,7 +107,7 @@ export default class AddNote extends Component {
                             <select id='folder-select' onChange={e => this.folderChange(e.target.value)}>
                                 <option value='0'>Select a folder</option>
                                 {folders.map(folder => (
-                                    <option value={folder.id}>{folder.folder_name}</option>
+                                    <option value={folder.id} key={folder.id}>{folder.folder_name}</option>
                                 ))}
                             </select>
                             {this.state.noteFolder.touched && (<ValidationError message={folderError}/>)}

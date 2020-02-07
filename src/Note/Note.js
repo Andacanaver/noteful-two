@@ -35,6 +35,8 @@ export default class Note extends Component {
       console.log({err})
     })
   }
+  
+
   render() {
     const {note_name, id, modified} = this.props
     return (
@@ -52,7 +54,7 @@ export default class Note extends Component {
 				<div className="Note__dates-modified">
 					Modified{" "}
 					<span className="Date">
-						{format(modified, "Do MMM YYYY", {
+						{format(modified, "DD MMM YYYY", {
 							awareOfUnicodeTokens: true
 						})}
 					</span>
@@ -66,6 +68,6 @@ export default class Note extends Component {
 Note.propTypes = {
   note_name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  modified: PropTypes.instanceOf(Date).isRequired,
+  modified: PropTypes.string.isRequired,
   onDeleteNote: PropTypes.func.isRequired
 }

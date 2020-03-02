@@ -24,12 +24,12 @@ export default class Note extends Component {
     })
     .then(res => {
       if (!res.ok)
+        //todo why isn't this working? what could i do different for it
         //return res.json().then(e => Promise.reject(e))
       return res.json()
     })
     .then(() => {
       this.context.deleteNote(noteId)
-      this.props.handleDelete(noteId)
     })
     .catch(err => {
       console.log({err})

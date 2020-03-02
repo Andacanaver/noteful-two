@@ -19,6 +19,7 @@ export default class NoteListMain extends React.Component {
   render() {
     const { folderId } = this.props.match.params;
     const { notes = [] } = this.context;
+    
     const notesForFolder = getNotesForFolder(notes, folderId);
     return (
       <ErrorBoundry>
@@ -26,7 +27,7 @@ export default class NoteListMain extends React.Component {
           <ul>
             {notesForFolder.map(note => (
               <li key={note.id}>
-                <Note id={note.id} name={note.name} modified={note.modified} />
+                <Note id={note.id} note_name={note.note_name} modified={note.modified} />
               </li>
             ))}
           </ul>

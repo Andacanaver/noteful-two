@@ -38,7 +38,7 @@ export default class AddFolder extends Component {
     handleAddfolder = () => {
         fetch(`${config.API_ENDPOINT}/folders`, {
           method: "POST",
-          body: JSON.stringify({name: this.state.name}),
+          body: JSON.stringify({folder_name: this.state.name}),
           headers: {
             "Content-type": "application/json",
             'Accept': 'application/json'
@@ -53,8 +53,6 @@ export default class AddFolder extends Component {
         .then(res => res.json())
         .then(data => {
             this.context.addFolder(data);
-            console.log(data)
-            console.log(this.props.history)
             this.props.history.push("/");
         })
         .catch(error => {
@@ -69,7 +67,7 @@ export default class AddFolder extends Component {
     nameChange = name => {
         this.setState({name: name});
     }
- render() {
+  render() {
         return (
           <div className="add-folder">
             <NotefulForm
